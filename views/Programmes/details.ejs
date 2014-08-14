@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<script type="text/javascript" src="/js/lib/jquery-1.11.1.min.js" ></script>
+	</head>
+	<body>
+		<form>
+			<b>Name </b>
+			<input type="textbox" name="txtName" value="<%=Programme.Name%>" />
+			<br/><br/>
+			<b>Fields</b>
+			<table border="1">
+				<tr>
+					<td>&nbsp;</td>
+					<td>Field Name</td>
+					<td>Field Type</td>
+				</tr>
+				<%for (var i=0; i < Sections.length; i++){%>
+					<tr>
+						<td><%=Sections[i].Name%> - <%=Sections[i].id%></td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+					<%for (var n=0; n < Fields.length; n++){%>
+						<%if (Fields[n].SectionId == Sections[i].id){%>
+							<tr>
+								<td>&nbsp;</td>
+								<td><%=Fields[n].Name%></td>
+								<td><%=Fields[n].Type%></td>
+							</tr>
+					<%} }%>
+				<%}%>
+			</table>
+			<input type="hidden" id="hdnProgrammId" value="<%=Programme.id%>">
+			<hr/>
+			<p><b>Add new Section</b></p>
+			Name <input type="textbox" id="txtSectionName"/>
+			<input type="button" value="Add" id="btnAddSection">			
+			<hr/>
+			<p><b>Add new Field</b></p>
+			Name <input type="textbox" id="txtFieldName"/>
+			<br/>
+			Type <select id="slctType">
+				<option value="Text">Text</option>
+			</select>
+			<br/>
+			Section <select id="slctSection"></select>
+
+			<br/>
+			<input type="button" value="Add" id="btnAddField">			
+		</form>
+
+
+	</body>
+</html>
+
+<script type="text/javascript" src="/js/client_programme.js" ></script>

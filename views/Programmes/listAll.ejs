@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<script type="text/javascript" src="/js/lib/jquery-1.11.1.min.js" ></script>
+	</head>
+	<body>
+		<b>List of Programmes</b>
+
+		<table border="1">
+			<tr>
+				<td>Id</td>
+				<td>Name
+			</tr>
+			<%_.each(Model, function(myList){%>
+			<tr>
+				<td><a href="/programme/details?Id=<%=myList.id%>"><%= myList.id%></a></td>
+				<td><a href="/programme/details?Id=<%=myList.id%>"><%= myList.Name%></a></td>
+			</tr>
+			<% })%>
+		</table>
+		<hr/>
+		<p><b>Add new programme</b></p>
+		Name <input type="textbox" id="txtProgrammeName"/>
+		<input type="button" value="Add" id="btnAdd">
+	</body>
+</html>
+
+<script type="text/javascript" src="/js/client_programme.js" ></script>
